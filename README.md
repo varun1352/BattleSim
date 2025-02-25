@@ -1,6 +1,4 @@
-Below is a polished, rewritten version of your README.md that you can use for your GitHub repository or as part of your blog post on Medium:
 
----
 
 # Battleship Simulator
 
