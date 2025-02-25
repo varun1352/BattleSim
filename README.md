@@ -8,7 +8,7 @@ Battleship Simulator is an AI-powered game simulation built with CrewAI and Cere
 
 ## Demo
 
-![simulation](BattleShip/Screenshot 2025-02-25 at 4.06.58 AM.png)
+![simulation](Screenshot 2025-02-25 at 4.06.58 AM.png)
 
 Watch the AI agents battle it out in real-time as they employ their strategic decision-making processes.
 
