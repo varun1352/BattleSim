@@ -6,6 +6,13 @@ Below is a polished, rewritten version of your README.md that you can use for yo
 
 Battleship Simulator is an AI-powered game simulation built with CrewAI and Cerebras, featuring a sleek, custom Tkinter user interface. In this project, two advanced AI agents—each with distinct strategic philosophies—compete in a game of Battleship. This setup lets you experiment with sophisticated strategies like systematic search, probability analysis, and immediate ship finishing.
 
+## Demo
+
+https://github.com/varun1352/BattleSim/blob/main/Screen%20Recording%202025-02-25%20at%203.40.07%E2%80%AFAM.mov
+
+Watch the AI agents battle it out in real-time as they employ their strategic decision-making processes.
+
+
 ## Features
 
 - **Agentic Simulation:**  
