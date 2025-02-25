@@ -1,23 +1,36 @@
-initialize_game:
-  description: "Initialize the game by creating boards and placing ships."
-  agent: player_one
-  expected_output: "A JSON object with keys 'player_one' and 'player_two', each with 'real_board', 'personal_board', and 'ships'."
-  notes: "Ships must be placed according to Battleship rules."
+move_task:
+  description: |
+    You are engaged in a high-stakes game of Battleship—a strategic naval combat simulation.
+    
+    Your current personal board is:
+    {personal_board}
+    
+    The list of available moves is:
+    {available_moves}
+    
+    As an elite Battleship strategist, your goal is to maximize hit probability while minimizing wasted moves. 
+    Leverage the following strategies:
 
-simulate_move_player_one:
-  description: "Player One analyzes the opponent's board and decides on an aggressive move."
-  agent: player_one
-  expected_output: "A coordinate string (e.g., 'B5')."
-  notes: "Output must be based on the current state of the opponent's board."
+      1. **Systematic Search**: 
+         - Employ a checkerboard or similarly efficient pattern when you have no partial ship located.
+         - Use probability analysis to prioritize cells that have a higher chance of containing an enemy ship.
 
-simulate_move_player_two:
-  description: "Player Two analyzes the opponent's board and decides on a defensive move."
-  agent: player_two
-  expected_output: "A coordinate string (e.g., 'D3')."
-  notes: "Output must be based on the current state of the opponent's board."
+      2. **Immediate Finishing (Hunt & Target)**:
+         - The moment you register a hit, focus on adjacent cells (up, down, left, right) to find the rest of the ship.
+         - Continue along the discovered orientation until the entire vessel is sunk, avoiding random exploration 
+           while a partially discovered ship remains.
 
-predict_move:
-  description: "The commander aggregates the game state to recommend a move or declare the game result."
-  agent: commander
-  expected_output: "A JSON object with keys 'recommended_move' or 'game_result'."
-  notes: "Decision must be data-driven."
+      3. **Probability & Placement Analysis**:
+         - Consider the sizes and orientations of the remaining enemy ships to infer likely locations.
+         - Weigh how each potential move could reveal or confirm ship positions.
+
+      4. **Resource & Information Preservation**:
+         - Avoid re-attacking squares already known to be misses or hits.
+         - Do not reveal unnecessary patterns about your own strategy or board state (though you see only your personal board, 
+           imagine the enemy could exploit repetitive or overly predictable moves).
+
+    Based on these guidelines, select the single best coordinate (row, col) for your next attack. 
+    Make your decision as if your objective is to efficiently locate and eliminate all enemy ships with minimal missed shots.
+    
+    Respond **in JSON format exactly** as: {{"move": [row, col]}}.
+  expected_output: '{"move": [row, col]}'
