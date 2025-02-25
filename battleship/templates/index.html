@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Battleship Simulator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Battleship Simulator</h1>
+  <div id="game-controls">
+    <button id="start-game">Start Game</button>
+    <button id="simulate-game">Simulate Full Game</button>
+  </div>
+  
+  <div id="boards">
+    <div class="board" id="board-player-one">
+      <h2>Player One Board</h2>
+      <pre id="player-one-board"></pre>
+    </div>
+    <div class="board" id="board-player-two">
+      <h2>Player Two Board</h2>
+      <pre id="player-two-board"></pre>
+    </div>
+  </div>
+  
+  <div id="move-controls">
+    <h3>Make a Move</h3>
+    <select id="player-select">
+      <option value="player_one">Player One</option>
+      <option value="player_two">Player Two</option>
+    </select>
+    <input type="text" id="move-input" placeholder="Enter coordinate (e.g., B5)">
+    <button id="make-move">Submit Move</button>
+  </div>
+  
+  <div id="simulation-result">
+    <h3>Simulation Result</h3>
+    <p id="result-text"></p>
+  </div>
+  
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+initialize_game:
+  description: "Initialize the game by creating boards and placing ships."
+  agent: player_one
+  expected_output: "A JSON object with keys 'player_one' and 'player_two', each with 'real_board', 'personal_board', and 'ships'."
+  notes: "Ships must be placed according to Battleship rules."
+
+simulate_move_player_one:
+  description: "Player One analyzes the opponent's board and decides on an aggressive move."
+  agent: player_one
+  expected_output: "A coordinate string (e.g., 'B5')."
+  notes: "Output must be based on the current state of the opponent's board."
+
+simulate_move_player_two:
+  description: "Player Two analyzes the opponent's board and decides on a defensive move."
+  agent: player_two
+  expected_output: "A coordinate string (e.g., 'D3')."
+  notes: "Output must be based on the current state of the opponent's board."
+
+predict_move:
+  description: "The commander aggregates the game state to recommend a move or declare the game result."
+  agent: commander
+  expected_output: "A JSON object with keys 'recommended_move' or 'game_result'."
+  notes: "Decision must be data-driven."
