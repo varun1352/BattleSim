@@ -1,61 +1,120 @@
+Below is a polished, rewritten version of your README.md that you can use for your GitHub repository or as part of your blog post on Medium:
+
+---
+
 # Battleship Simulator
 
-A Battleship simulation project powered by CrewAI and Cerebras, featuring a custom Tkinter UI.  
-This project allows you to test advanced AI strategies in a game of Battleship with two agents:
-•⁠  ⁠*Aggressive Hunter:* Focuses on systematic search and rapid targeting.
-•⁠  ⁠*Defensive Counter:* Balances exploration with careful targeting.
+Battleship Simulator is an AI-powered game simulation built with CrewAI and Cerebras, featuring a sleek, custom Tkinter user interface. In this project, two advanced AI agents—each with distinct strategic philosophies—compete in a game of Battleship. This setup lets you experiment with sophisticated strategies like systematic search, probability analysis, and immediate ship finishing.
 
 ## Features
 
-•⁠  ⁠*Agentic Simulation:* Two AI agents play Battleship using advanced probability analysis and a “hunt and target” strategy.
-•⁠  ⁠*Customizable Strategies:* Detailed YAML configurations allow you to define complex roles, goals, and strategies.
-•⁠  ⁠*High-Speed Inference:* Integrated with Cerebras' high-speed inference (LLM) for real-time decision making.
-•⁠  ⁠*Intuitive UI:* A custom Tkinter interface displays both the personal board (updated dynamically) and the real board (static), with clear status updates.
-•⁠  ⁠*Rate Limiting:* The simulation respects Cerebras’ rate limit of approximately 2 calls/second.
+- **Agentic Simulation:**  
+  Two AI agents engage in real-time Battleship using advanced probability modeling and a “hunt and target” approach.
+
+- **Customizable Strategies:**  
+  Define and fine-tune complex roles, goals, and tactics via detailed YAML configuration files.
+
+- **High-Speed Inference:**  
+  Leverages Cerebras’ high-speed inference (LLM) to make decisions in near real time.
+
+- **Intuitive User Interface:**  
+  A custom Tkinter UI displays each player’s personal board (dynamically updated) and the static real board, ensuring clear, real-time status feedback.
+
+- **Rate Limiting:**  
+  The simulation respects Cerebras’ rate limit of approximately 2 calls per second.
 
 ## Installation
 
-1.⁠ ⁠*Clone the Repository:*
+1. **Clone the Repository:**
 
-   ⁠ bash
+   ```bash
    git clone https://github.com/<your-username>/battleship-simulator.git
    cd battleship-simulator
-    ⁠
+   ```
 
-2.⁠ ⁠*Create and Activate a Virtual Environment:*
+2. **Create and Activate a Virtual Environment:**
 
-⁠ bash
-Copy
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
- ⁠
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
 
-3.⁠ ⁠*Install Dependencies:*
+3. **Install Dependencies:**
 
-⁠ bash
-pip install -r requirements.txt
- ⁠
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-4.⁠ ⁠*Set Up Environment Variables:*
-Create a .env file in the project root with:
+4. **Configure Environment Variables:**
 
-    CEREBRAS_API_KEY=your_cerebras_api_key_here
+   Create a `.env` file in the project root with the following content:
 
+   ```
+   CEREBRAS_API_KEY=your_cerebras_api_key_here
+   ```
 
-⁠ ## Usage
+## Usage
 
-1. **Run the Simulation:**
+### Running the Simulation via the Terminal
 
- ⁠bash
-python ui.py
+To run the simulation in terminal mode, simply execute:
 
-
-⁠ 2. **Configure the Simulation:**
-
-Edit the `config/agents.yaml` file to customize the AI agents' roles, goals, and strategies.
-
-3. **Run the Simulation to test out the new strategies:**
-
- ⁠bash
-python ui.py
+```bash
+crewai run
 ```
+
+### Launching the Graphical UI
+
+To start the Tkinter-based interface:
+
+```bash
+python -m battleship.ui
+```
+
+*Ensure your PYTHONPATH is set appropriately or run the command from the project root.*
+
+### Customizing AI Strategies
+
+To tailor the AI behaviors, edit the configuration files located in the `src/battleship/config/` directory:
+
+- **agents.yaml:**  
+  Customize each agent’s role, goal, and detailed backstory.
+
+- **tasks.yaml:**  
+  Refine the move-generation prompt to encourage optimal play—such as prioritizing sinking a ship immediately after a hit.
+
+## Project Structure
+
+```
+battleship/
+├── README.md
+├── knowledge/
+│   └── user_preference.txt
+├── output/
+│   ├── player1_move.md
+│   └── player2_move.md
+├── pyproject.toml
+├── src/
+│   └── battleship/
+│       ├── __init__.py
+│       ├── board.py
+│       ├── config/
+│       │   ├── agents.yaml
+│       │   └── tasks.yaml
+│       ├── crew.py
+│       ├── main.py
+│       └── tools/
+│           ├── __init__.py
+│           └── custom_tool.py
+├── tests/
+├── ui.py
+└── uv.lock
+```
+
+## Contributing
+
+Contributions are welcome! Feel free to fork the repository, make improvements, and open pull requests. For major changes, please open an issue first to discuss your ideas.
+
+## License
+
+This project is licensed under the MIT License.
